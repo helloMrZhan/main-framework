@@ -17,7 +17,7 @@
         <module>spring-jdbc-template</module>
     </modules>
 
-    <name>mybatis</name>
+    <name>spring</name>
     <description>spring框架学习</description>
 
     <properties>
