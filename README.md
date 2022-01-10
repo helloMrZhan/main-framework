@@ -4,13 +4,20 @@
 当前主流框架学习
 
 #### spring
-[spring](spring)
+[spring AOP](spring/spring-aop)
+[spring IOC](spring/spring-ioc)
+[spring IOC注解](spring/spring-ioc-anno)
+[spring jdbcTemplate](spring/spring-jdbc-template)
 
 #### spring mvc
-[springMVC](springmvc)
+[springMVC web请求](springmvc/springmvc-web-request)
+[springMVC 文件上传拦截器](springmvc/springmvc-web-upload-interceptor)
+[springMVC web](springmvc/springmvc-web)
 
 #### mybatis
-[mybatis](mybatis)
+[mybatis基础](mybatis/mybatis-base)
+[mybatis dao入门](mybatis/mybatis-dao-learn)
+[mybatis注解配置和多表联查](mybatis/mybatis-anno-multi)
 
 #### 参与贡献
 
