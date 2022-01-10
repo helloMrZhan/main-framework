@@ -16,8 +16,8 @@
         <module>springmvc-web-upload-interceptor</module>
     </modules>
 
-    <name>mybatis</name>
-    <description>spring框架学习</description>
+    <name>springmvc</name>
+    <description>spring MVC框架学习</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
