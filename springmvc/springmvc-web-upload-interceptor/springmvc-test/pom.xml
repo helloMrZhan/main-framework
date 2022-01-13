@@ -9,6 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <packaging>war</packaging>
+
     <artifactId>springmvc-test</artifactId>
     <dependencies>
         <dependency>
