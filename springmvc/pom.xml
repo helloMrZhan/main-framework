@@ -16,7 +16,7 @@
         <module>springmvc-web-upload-interceptor</module>
     </modules>
 
-    <name>springmvc</name>
+    <name>spring-mvc</name>
     <description>spring MVC框架学习</description>
 
     <properties>
