@@ -9,7 +9,8 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
- * 发送消息
+ * 路由模式生产者（Exchange不再把消息交给每一个绑定的队列，而是根据消息的Routing Key进行判断，只有队列的
+ * routingKey与消息的 routingKey完全一致，才会接收到消息）
  * @author zjq
  */
 public class Producer_Routing {

@@ -5,6 +5,7 @@ import com.rabbitmq.client.*;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 /**
+ * 路由模式消费者
  * @author zjq
  */
 public class Consumer_Routing1 {
