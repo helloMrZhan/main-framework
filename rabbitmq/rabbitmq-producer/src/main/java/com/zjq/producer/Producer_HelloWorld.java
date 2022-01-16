@@ -54,7 +54,6 @@ public class Producer_HelloWorld {
             2. routingKey：路由名称
             3. props：配置信息
             4. body：发送消息数据
-
          */
 
         String body = "hello rabbitmq~~~";
