@@ -20,18 +20,18 @@
                                virtual-host="${rabbitmq.virtual-host}"/>
 
     <bean id="springQueueListener" class="com.zjq.rabbitmq.listener.SpringQueueListener"/>
-    <!--<bean id="fanoutListener1" class="com.zjq.rabbitmq.listener.FanoutListener1"/>
+    <bean id="fanoutListener1" class="com.zjq.rabbitmq.listener.FanoutListener1"/>
     <bean id="fanoutListener2" class="com.zjq.rabbitmq.listener.FanoutListener2"/>
     <bean id="topicListenerStar" class="com.zjq.rabbitmq.listener.TopicListenerStar"/>
     <bean id="topicListenerWell" class="com.zjq.rabbitmq.listener.TopicListenerWell"/>
     <bean id="topicListenerWell2" class="com.zjq.rabbitmq.listener.TopicListenerWell2"/>
--->
+
     <rabbit:listener-container connection-factory="connectionFactory" auto-declare="true">
         <rabbit:listener ref="springQueueListener" queue-names="spring_queue"/>
-       <!-- <rabbit:listener ref="fanoutListener1" queue-names="spring_fanout_queue_1"/>
+        <rabbit:listener ref="fanoutListener1" queue-names="spring_fanout_queue_1"/>
         <rabbit:listener ref="fanoutListener2" queue-names="spring_fanout_queue_2"/>
         <rabbit:listener ref="topicListenerStar" queue-names="spring_topic_queue_star"/>
         <rabbit:listener ref="topicListenerWell" queue-names="spring_topic_queue_well"/>
-        <rabbit:listener ref="topicListenerWell2" queue-names="spring_topic_queue_well2"/>-->
+        <rabbit:listener ref="topicListenerWell2" queue-names="spring_topic_queue_well2"/>
     </rabbit:listener-container>
 </beans>
