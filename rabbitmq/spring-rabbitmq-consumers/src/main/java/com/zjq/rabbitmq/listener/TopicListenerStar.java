@@ -5,7 +5,7 @@ import org.springframework.amqp.core.MessageListener;
 
 /**
  * 星号通配符监听器
- * @author Administrator
+ * @author zjq
  */
 public class TopicListenerStar implements MessageListener {
 

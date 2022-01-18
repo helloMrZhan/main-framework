@@ -4,7 +4,7 @@ import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageListener;
 /**
  * 井号通配符监听器1
- * @author Administrator
+ * @author zjq
  */
 public class TopicListenerWell implements MessageListener {
 

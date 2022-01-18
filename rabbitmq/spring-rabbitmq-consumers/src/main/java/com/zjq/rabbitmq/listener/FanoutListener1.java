@@ -6,7 +6,7 @@ import org.springframework.amqp.core.MessageListener;
 
 /**
  * 广播模式监听器1
- * @author Administrator
+ * @author zjq
  */
 public class FanoutListener1 implements MessageListener {
 

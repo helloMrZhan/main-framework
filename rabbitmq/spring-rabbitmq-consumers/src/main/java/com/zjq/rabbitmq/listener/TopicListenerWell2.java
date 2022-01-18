@@ -5,7 +5,7 @@ import org.springframework.amqp.core.MessageListener;
 
 /**
  * 井号通配符监听器2
- * @author Administrator
+ * @author zjq
  */
 public class TopicListenerWell2 implements MessageListener {
     @Override
