@@ -15,7 +15,7 @@ import java.io.IOException;
  *  3. 如果消息成功处理，则调用channel的 basicAck()签收
  *  4. 如果消息处理失败，则调用channel的basicNack()拒绝签收，broker重新发送给consumer
  *
- * @author Administrator
+ * @author zjq
  */
 @Component
 public class AckListener implements ChannelAwareMessageListener {
