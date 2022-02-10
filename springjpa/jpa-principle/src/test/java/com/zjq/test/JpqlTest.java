@@ -21,15 +21,15 @@ public class JpqlTest {
 
     @Test
     public void  testFindJPQL() {
-        Customer customer = customerDao.findJpql("传智播客");
+        Customer customer = customerDao.findJpql("zjq");
         System.out.println(customer);
     }
 
 
     @Test
     public void testFindCustNameAndId() {
-       // Customer customer =  customerDao.findCustNameAndId("传智播客",1l);
-        Customer customer =  customerDao.findCustNameAndId(1l,"传智播客");
+       // Customer customer =  customerDao.findCustNameAndId("zjq",1l);
+        Customer customer =  customerDao.findCustNameAndId(1l,"zjq");
         System.out.println(customer);
     }
 
@@ -45,13 +45,13 @@ public class JpqlTest {
     @Transactional //添加事务的支持
     @Rollback(value = false)
     public void testUpdateCustomer() {
-        customerDao.updateCustomer(4l,"黑马程序员");
+        customerDao.updateCustomer(4l,"zjq666");
     }
 
     //测试sql查询
     @Test
     public void testFindSql() {
-        List<Object[]> list = customerDao.findSql("传智播客%");
+        List<Object[]> list = customerDao.findSql("zjq%");
         for(Object [] obj : list) {
             System.out.println(Arrays.toString(obj));
         }
@@ -61,7 +61,7 @@ public class JpqlTest {
     //测试方法命名规则的查询
     @Test
     public void testNaming() {
-        Customer customer = customerDao.findByCustName("传智播客");
+        Customer customer = customerDao.findByCustName("zjq");
         System.out.println(customer);
     }
 
@@ -69,7 +69,7 @@ public class JpqlTest {
     //测试方法命名规则的查询
     @Test
     public void testFindByCustNameLike() {
-        List<Customer> list = customerDao.findByCustNameLike("传智播客%");
+        List<Customer> list = customerDao.findByCustNameLike("zjq%");
         for (Customer customer : list) {
             System.out.println(customer);
         }
@@ -79,7 +79,7 @@ public class JpqlTest {
     //测试方法命名规则的查询
     @Test
     public void testFindByCustNameLikeAndCustIndustry() {
-        Customer customer = customerDao.findByCustNameLikeAndCustIndustry("传智播客1%", "it教育");
+        Customer customer = customerDao.findByCustNameLikeAndCustIndustry("zjq1%", "it教育");
         System.out.println(customer);
     }
 }

@@ -45,7 +45,7 @@ public interface CustomerDao extends JpaRepository<Customer,Long> ,JpaSpecificat
     /**
      * 使用jpql完成更新操作
      *      案例 ： 根据id更新，客户的名称
-     *          更新4号客户的名称，将名称改为“黑马程序员”
+     *          更新4号客户的名称，将名称改为“zjq666”
      *
      *  sql  ：update cst_customer set cust_name = ? where cust_id = ?
      *  jpql : update Customer set custName = ? where custId = ?

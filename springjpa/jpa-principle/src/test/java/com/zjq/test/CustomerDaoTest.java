@@ -35,7 +35,7 @@ public class CustomerDaoTest {
     @Test
     public void testSave() {
         Customer customer  = new Customer();
-        customer.setCustName("黑马程序员");
+        customer.setCustName("zjq666");
         customer.setCustLevel("vip");
         customer.setCustIndustry("it教育");
         customerDao.save(customer);
@@ -45,7 +45,7 @@ public class CustomerDaoTest {
     public void testUpdate() {
         Customer customer  = new Customer();
         customer.setCustId(4l);
-        customer.setCustName("黑马程序员很厉害");
+        customer.setCustName("zjq666很厉害");
         customerDao.save(customer);
     }
 

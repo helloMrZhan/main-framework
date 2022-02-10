@@ -13,6 +13,7 @@
     <modules>
         <module>jpa-base</module>
         <module>jpa-principle</module>
+        <module>jpa-high</module>
     </modules>
 
     <name>springjpa</name>
