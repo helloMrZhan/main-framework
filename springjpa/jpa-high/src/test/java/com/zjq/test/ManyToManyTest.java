@@ -1,9 +1,9 @@
-package cn.zjq.test;
+package com.zjq.test;
 
-import cn.zjq.dao.RoleDao;
-import cn.zjq.dao.UserDao;
-import cn.zjq.domain.Role;
-import cn.zjq.domain.User;
+import com.zjq.dao.RoleDao;
+import com.zjq.dao.UserDao;
+import com.zjq.domain.Role;
+import com.zjq.domain.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

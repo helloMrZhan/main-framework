@@ -1,12 +1,12 @@
-package cn.zjq.dao;
+package com.zjq.dao;
 
-import cn.zjq.domain.User;
+import com.zjq.domain.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 /**
- * 用户dao
+ * 角色dao
  * @author zjq
  */
-public interface UserDao extends JpaRepository<User,Long> ,JpaSpecificationExecutor<User> {
+public interface RoleDao extends JpaRepository<Role,Long> ,JpaSpecificationExecutor<Role> {
 }

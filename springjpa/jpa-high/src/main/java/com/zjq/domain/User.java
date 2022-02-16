@@ -1,4 +1,4 @@
-package cn.zjq.domain;
+package com.zjq.domain;
 
 import javax.persistence.*;
 import java.util.HashSet;
