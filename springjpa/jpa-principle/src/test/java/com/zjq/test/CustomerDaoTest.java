@@ -37,7 +37,7 @@ public class CustomerDaoTest {
         Customer customer  = new Customer();
         customer.setCustName("zjq666");
         customer.setCustLevel("vip");
-        customer.setCustIndustry("it教育");
+        customer.setCustIndustry("金融");
         customerDao.save(customer);
     }
 

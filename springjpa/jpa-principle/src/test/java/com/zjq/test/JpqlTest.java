@@ -79,7 +79,7 @@ public class JpqlTest {
     //测试方法命名规则的查询
     @Test
     public void testFindByCustNameLikeAndCustIndustry() {
-        Customer customer = customerDao.findByCustNameLikeAndCustIndustry("zjq1%", "it教育");
+        Customer customer = customerDao.findByCustNameLikeAndCustIndustry("zjq1%", "金融");
         System.out.println(customer);
     }
 }

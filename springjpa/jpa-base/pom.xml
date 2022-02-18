@@ -8,7 +8,7 @@
         <artifactId>springjpa</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <groupId>cn.zjq</groupId>
+    <groupId>com.zjq</groupId>
     <artifactId>jpa-base</artifactId>
     <version>1.0-SNAPSHOT</version>
 
