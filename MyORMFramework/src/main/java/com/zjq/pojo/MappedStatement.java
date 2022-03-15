@@ -18,9 +18,9 @@ public final class MappedStatement {
     /**
      * 参数值类型
      */
-    private String parameterType;
+    private Class parameterType;
     /**
      * 返回值类型
      */
-    private String resultType;
+    private Class resultType;
 }
