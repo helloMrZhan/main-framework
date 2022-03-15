@@ -8,7 +8,7 @@ import lombok.Data;
  * @date 2022/3/15
  */
 @Data
-public class MappedStatement {
+public final class MappedStatement {
 
     private String id;
     /**
