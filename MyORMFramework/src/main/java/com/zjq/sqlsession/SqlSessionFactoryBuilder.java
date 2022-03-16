@@ -5,6 +5,7 @@ import com.zjq.xmlbuilder.XMLConfigerBuilder;
 import org.dom4j.DocumentException;
 
 import java.beans.PropertyVetoException;
+import java.io.IOException;
 import java.io.InputStream;
 
 /**
@@ -22,7 +23,7 @@ public class SqlSessionFactoryBuilder {
     }
 
     public SqlSessionFactory build(InputStream inputStream) throws
-            DocumentException, PropertyVetoException, ClassNotFoundException {
+            DocumentException, PropertyVetoException, ClassNotFoundException, IOException {
         //1.dom4j解析配置⽂件，封装Configuration
         XMLConfigerBuilder xmlConfigerBuilder = new
                 XMLConfigerBuilder(configuration);

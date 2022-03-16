@@ -24,14 +24,14 @@ public class XMLConfigerBuilder {
 
     private Configuration configuration;
 
-    public XMLConfigerBuilder() {
+    public XMLConfigerBuilder(Configuration configuration) {
         this.configuration = new Configuration();
     }
 
     /**
      * 该方法就是使用dom4j对配置文件进行解析，封装Configuration
      */
-    public Configuration parseConfig(InputStream inputStream) throws DocumentException, PropertyVetoException, IOException {
+    public Configuration parseConfiguration(InputStream inputStream) throws DocumentException, PropertyVetoException, IOException, ClassNotFoundException {
 
         Document document = new SAXReader().read(inputStream);
         //<configuration>
