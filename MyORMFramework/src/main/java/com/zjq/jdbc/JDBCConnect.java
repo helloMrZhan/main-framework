@@ -28,7 +28,7 @@ public class JDBCConnect {
             // 获取预处理statement
             preparedStatement = connection.prepareStatement(sql);
             // 设置参数，第⼀个参数为sql语句中参数的序号(从1开始)，第⼆个参数为设置的参数值
-            preparedStatement.setString(1, "tom");
+            preparedStatement.setString(1, "zjq666888");
             // 向数据库发出sql执⾏查询，查询出结果集
             resultSet = preparedStatement.executeQuery();
             List<User> userList = new ArrayList<>(16);
@@ -37,9 +37,14 @@ public class JDBCConnect {
                 User user = new User();
                 Long id = resultSet.getLong("id");
                 String username = resultSet.getString("username");
+                String password = resultSet.getString("password");
+                String phone = resultSet.getString("phone");
                 // 封装User
                 user.setId(id);
                 user.setUsername(username);
+                user.setPassword(password);
+                user.setPhone(phone);
+                userList.add(user);
             }
             System.out.println(userList);
         } catch (Exception e) {
