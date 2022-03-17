@@ -24,7 +24,7 @@ public class XMLConfigerBuilder {
 
     private Configuration configuration;
 
-    public XMLConfigerBuilder(Configuration configuration) {
+    public XMLConfigerBuilder() {
         this.configuration = new Configuration();
     }
 

@@ -56,7 +56,10 @@ public class XMLMapperBuilder {
 
     private Class<?> getClassType (String parameterType) throws
             ClassNotFoundException {
-        Class<?> aClass = Class.forName(parameterType);
+        Class<?> aClass = null;
+        if(parameterType!=null) {
+            aClass = Class.forName(parameterType);
+        }
         return aClass;
     }
 

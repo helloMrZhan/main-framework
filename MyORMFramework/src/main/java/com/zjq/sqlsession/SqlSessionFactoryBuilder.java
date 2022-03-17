@@ -16,17 +16,12 @@ import java.io.InputStream;
  */
 public class SqlSessionFactoryBuilder {
 
-    private Configuration configuration;
-
-    public SqlSessionFactoryBuilder(Configuration configuration) {
-        this.configuration = configuration;
-    }
 
     public SqlSessionFactory build(InputStream inputStream) throws
             DocumentException, PropertyVetoException, ClassNotFoundException, IOException {
         //1.dom4j解析配置⽂件，封装Configuration
         XMLConfigerBuilder xmlConfigerBuilder = new
-                XMLConfigerBuilder(configuration);
+                XMLConfigerBuilder();
         Configuration configuration =
                 xmlConfigerBuilder.parseConfiguration(inputStream);
         //2.创建SqlSessionFactory对象（工厂类），生产sqlSession:会话对象
