@@ -3,8 +3,8 @@
     <!--数据库配置信息-->
     <dataSource>
         <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
-        <property name="jdbcUrl" value="jdbc:mysql:///my-orm-framework"></property>
-        <property name="user" value="root"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/my-orm-framework"></property>
+        <property name="username" value="root"></property>
         <property name="password" value="root"></property>
     </dataSource>
 

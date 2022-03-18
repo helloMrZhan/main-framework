@@ -13,7 +13,11 @@ import org.junit.Test;
 import java.io.InputStream;
 import java.util.List;
 
-public class IPersistenceTest {
+/**
+ * 自定义持久层框架验证
+ * @author Administrator
+ */
+public class MyORMFrameworkTest {
 
     @Test
     public void test() throws Exception {
