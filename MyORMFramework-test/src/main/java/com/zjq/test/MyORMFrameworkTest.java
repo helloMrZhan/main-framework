@@ -27,23 +27,23 @@ public class MyORMFrameworkTest {
 
         //调用
         User user = new User();
-        user.setId(1);
-        user.setUsername("张三");
-      /*  User user2 = sqlSession.selectOne("user.selectOne", user);
+        user.setPhone("15656455662");
+        user.setUsername("zjq");
+//        User user2 = sqlSession.selectOne("com.zjq.dao.IUserDao.findOne", user);
+//
+//        System.out.println(user2);
 
-        System.out.println(user2);*/
+//        List<User> users = sqlSession.selectList("com.zjq.dao.IUserDao.findAll");
+//        for (User user1 : users) {
+//            System.out.println(user1);
+//        }
 
-        List<User> users = sqlSession.selectList("user.selectList");
-        for (User user1 : users) {
-            System.out.println(user1);
-        }
-
-        /*IUserDao userDao = sqlSession.getMapper(IUserDao.class);
+        IUserDao userDao = sqlSession.getMapper(IUserDao.class);
 
         List<User> all = userDao.findAll();
         for (User user1 : all) {
             System.out.println(user1);
-        }*/
+        }
     }
 
 

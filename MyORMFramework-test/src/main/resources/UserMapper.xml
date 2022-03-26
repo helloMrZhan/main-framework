@@ -6,12 +6,12 @@
     </select>
 
     <!--
-        User user = new User()
-        user.setId(1);
-        user.setUsername("zhangsan")
+        User user = new User();
+        user.setPhone("15656455662");
+        user.setUsername("zjq");
     -->
-    <select id="findByCondition" resultType="com.zjq.pojo.User" paramterType="com.zjq.pojo.User">
-        select * from user where id = #{id} and username = #{username}
+    <select id="findOne" resultType="com.zjq.pojo.User" parameterType="com.zjq.pojo.User">
+        select * from user where username = #{username} and phone = #{phone}
     </select>
 
 </mapper>

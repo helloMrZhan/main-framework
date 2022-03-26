@@ -90,9 +90,9 @@ public class SimpleExecutor implements Executor {
 
     }
 
-    private Class<?> getClassType(String paramterType) throws ClassNotFoundException {
-        if (paramterType != null) {
-            Class<?> aClass = Class.forName(paramterType);
+    private Class<?> getClassType(String parameterType) throws ClassNotFoundException {
+        if (parameterType != null) {
+            Class<?> aClass = Class.forName(parameterType);
             return aClass;
         }
         return null;

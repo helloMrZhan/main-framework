@@ -1,36 +1,23 @@
 package com.zjq.pojo;
+
+import lombok.Data;
+
 /**
  * 用户实体
  * @author zjq
  * @date 2022/3/17
  */
+@Data
 public class User {
 
     private Integer id;
+
     private String username;
 
+    private String password;
 
-    public Integer getId() {
-        return id;
-    }
+    private String phone;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    private Integer age;
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                '}';
-    }
 }

@@ -29,7 +29,7 @@ public class XMLMapperBuilder {
         Document document = new SAXReader().read(inputStream);
         Element rootElement = document.getRootElement();
         String namespace = rootElement.attributeValue("namespace");
-        List<Element> select = rootElement.selectNodes("select");
+        List<Element> select = rootElement.selectNodes("//select");
         for (Element element : select) {
             //id的值
             String id = element.attributeValue("id");

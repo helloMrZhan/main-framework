@@ -24,6 +24,6 @@ public interface IUserDao {
      * @return
      * @throws Exception
      */
-    User findByCondition(User user) throws Exception;
+    User findOne(User user) throws Exception;
 
 }
