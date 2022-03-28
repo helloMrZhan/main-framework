@@ -2,7 +2,12 @@ package com.zjq.domain;
 
 import java.util.Date;
 import java.util.List;
-
+/**
+ * <p>用户实体</p>
+ *
+ * @Author zjq
+ * @Date 2021/8/2
+ */
 public class User {
 
     private int id;

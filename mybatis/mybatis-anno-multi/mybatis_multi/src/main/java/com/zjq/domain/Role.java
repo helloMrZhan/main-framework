@@ -1,5 +1,10 @@
 package com.zjq.domain;
-
+/**
+ * <p>角色实体</p>
+ *
+ * @Author zjq
+ * @Date 2021/8/2
+ */
 public class Role {
 
     private int id;

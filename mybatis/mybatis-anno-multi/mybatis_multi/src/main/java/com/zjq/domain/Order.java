@@ -2,6 +2,12 @@ package com.zjq.domain;
 
 import java.util.Date;
 
+/**
+ * <p>订单实体</p>
+ *
+ * @Author zjq
+ * @Date 2021/8/2
+ */
 public class Order {
 
     private int id;
