@@ -14,6 +14,7 @@
         <module>mybatis-base</module>
         <module>mybatis-dao-learn</module>
         <module>mybatis-anno-multi</module>
+        <module>mybatis-cache</module>
     </modules>
 
     <name>mybatis</name>
