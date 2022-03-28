@@ -8,6 +8,7 @@ import java.util.Map;
 
 /**
  * 映射语句实体
+ *
  * @author zjq
  * @date 2022/3/15
  */
@@ -17,8 +18,7 @@ public class Configuration {
     private DataSource dataSource;
 
     /**
-     *  key: statementId  value:封装好的mappedStatement对象
+     * key: statementId  value:封装好的mappedStatement对象
      */
-    Map<String,MappedStatement> mappedStatementMap = new HashMap<>();
-
+    Map<String, MappedStatement> mappedStatementMap = new HashMap<>();
 }

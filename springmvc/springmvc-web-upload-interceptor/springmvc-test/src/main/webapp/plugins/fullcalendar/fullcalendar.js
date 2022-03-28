@@ -3023,7 +3023,7 @@ var Grid = fc.Grid = RowRenderer.extend({
 	// Renders and assigns an `el` property for each fill segment. Generic enough to work with different types.
 	// Only returns segments that successfully rendered.
 	// To be harnessed by renderFill (implemented by subclasses).
-	// Analagous to renderFgSegEls.
+	// Anazjqs to renderFgSegEls.
 	renderFillSegEls: function(type, segs) {
 		var _this = this;
 		var segElMethod = this[type + 'SegEl'];
