@@ -34,7 +34,10 @@
         </where>
     </select>
 
-    <select id="selectUserByUserId" parameterType="int" resultType="user">
+    <!--useCache=false，禁⽤⼆级缓存,默认启用
+     设置statement配置中的flushCache="true"属性，默认情况下为true,即刷新缓存，如果改成false则 不会刷新。
+     使⽤缓存时如果⼿动修改数据库表中的查询数据会出现脏读。-->
+    <select id="selectUserByUserId" parameterType="int" resultType="user" useCache="true" flushCache="true">
         <include refid="selectUser"></include>
         <where>
             and id = #{id}
