@@ -74,4 +74,27 @@ public class MapperTest {
         System.out.println("第二次查询结果：" + userList2);
         sqlSession.close();
     }
+
+    /**
+     * 测试二级缓存和sqlSession无关
+     * @throws IOException
+     */
+    @Test
+    public void testTwoCache() throws IOException {
+        InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
+        SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+        //根据 sqlSessionFactory 产⽣ session
+        SqlSession sqlSession1 = sessionFactory.openSession();
+        SqlSession sqlSession2 = sessionFactory.openSession();
+        UserMapper userMapper1 = sqlSession1.getMapper(UserMapper. class );
+        UserMapper userMapper2 = sqlSession2.getMapper(UserMapper. class );
+        //第⼀次查询，发出sql语句，并将查询的结果放⼊缓存中
+        User u1 = userMapper1.selectUserByUserId(1);
+        System.out.println(u1);
+        sqlSession1.close(); //第⼀次查询完后关闭 sqlSession
+        //第⼆次查询，即使sqlSession1已经关闭了，这次查询依然不发出sql语句
+        User u2 = userMapper2.selectUserByUserId(1);
+        System.out.println(u2);
+        sqlSession2.close();
+    }
 }

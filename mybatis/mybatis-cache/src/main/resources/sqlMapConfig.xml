@@ -5,6 +5,11 @@
     <!--通过properties标签加载外部properties文件-->
     <properties resource="jdbc.properties"></properties>
 
+    <!--开启⼆级缓存-->
+    <settings>
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+
     <!--自定义别名-->
     <typeAliases>
         <typeAlias type="com.zjq.domain.User" alias="user"></typeAlias>

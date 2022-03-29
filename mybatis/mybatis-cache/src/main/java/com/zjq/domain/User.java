@@ -2,6 +2,8 @@ package com.zjq.domain;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * <p>用户</p>
  *
@@ -9,7 +11,7 @@ import lombok.Data;
  * @Date 2021/8/3
  */
 @Data
-public class User {
+public class User implements Serializable {
 
     private int id;
     private String username;

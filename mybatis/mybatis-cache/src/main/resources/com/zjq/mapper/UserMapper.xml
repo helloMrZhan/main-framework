@@ -2,6 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zjq.mapper.UserMapper">
 
+    <!--开启⼆级缓存-->
+    <cache></cache>
+
     <!--sql语句抽取-->
     <sql id="selectUser">
       select * from user
@@ -28,6 +31,13 @@
             <foreach collection="list" open="id in(" close=")" item="id" separator=",">
                 #{id}
             </foreach>
+        </where>
+    </select>
+
+    <select id="selectUserByUserId" parameterType="int" resultType="user">
+        <include refid="selectUser"></include>
+        <where>
+            and id = #{id}
         </where>
     </select>
 

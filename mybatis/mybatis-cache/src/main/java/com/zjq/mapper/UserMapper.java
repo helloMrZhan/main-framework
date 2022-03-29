@@ -26,6 +26,13 @@ public interface UserMapper {
      */
     List<User> findByIds(List<Integer> ids);
 
+    /**
+     * 通过id查找用户
+     * @param id
+     * @return
+     */
+    User selectUserByUserId(Integer id);
+
 
     /**
      * 通过id更新用户
