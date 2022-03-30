@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapperTest {
+public class CacheTest {
     /**
      * 测试一级缓存
      *
