@@ -2,6 +2,7 @@ package com.zjq.test;
 
 import com.zjq.domain.User;
 import com.zjq.mapper.UserMapper;
+import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -125,5 +126,28 @@ public class MapperTest {
         User u2 = userMapper2.selectUserByUserId( 1 );
         System.out.println(u2);
         sqlSession2.close();
+    }
+
+    @Test
+    public void SecondLevelCache() throws IOException {
+        InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
+        SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+        SqlSession sqlSession1 = sessionFactory.openSession();
+        SqlSession sqlSession2 = sessionFactory.openSession();
+        SqlSession sqlSession3 = sessionFactory.openSession();
+        UserMapper mapper1 = sqlSession1.getMapper(UserMapper.class);
+        UserMapper mapper2 = sqlSession2.getMapper(UserMapper.class);
+        UserMapper mapper3 = sqlSession3.getMapper(UserMapper.class);
+        User user1 = mapper1.selectUserByUserId(2);
+        System.out.println(user1);
+        sqlSession1.close(); //清空⼀级缓存
+        User user = new User();
+        user.setId(2);
+        user.setUsername("zjq666");
+        mapper3.updateById(user);
+        sqlSession3.commit();
+        User user2 = mapper2.selectUserByUserId(2);
+        System.out.println(user2);
+        System.out.println(user1==user2);
     }
 }

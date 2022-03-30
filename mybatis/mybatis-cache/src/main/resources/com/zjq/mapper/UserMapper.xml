@@ -3,7 +3,7 @@
 <mapper namespace="com.zjq.mapper.UserMapper">
 
     <!--开启⼆级缓存-->
-    <cache></cache>
+    <cache type="org.mybatis.caches.redis.RedisCache"></cache>
 
     <!--sql语句抽取-->
     <sql id="selectUser">
