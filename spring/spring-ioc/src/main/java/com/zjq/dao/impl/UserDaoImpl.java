@@ -7,6 +7,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+/**
+ *
+ * @author zjq
+ */
 public class UserDaoImpl implements UserDao {
 
     private List<String> strList;
@@ -47,6 +51,7 @@ public class UserDaoImpl implements UserDao {
         System.out.println("销毁方法....");
     }*/
 
+    @Override
     public void save() {
         //System.out.println(username+"===="+age);
         System.out.println(strList);

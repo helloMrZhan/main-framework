@@ -17,7 +17,9 @@
 #### mybatis
 [mybatis基础](mybatis/mybatis-base)           
 [mybatis dao入门](mybatis/mybatis-dao-learn)          
-[mybatis注解配置和多表联查](mybatis/mybatis-anno-multi)              
+[mybatis注解配置和多表联查](mybatis/mybatis-anno-multi)
+[mybatis缓存和二级缓存整合Redis](mybatis/mybatis-cache)
+              
 
 #### 参与贡献
 
