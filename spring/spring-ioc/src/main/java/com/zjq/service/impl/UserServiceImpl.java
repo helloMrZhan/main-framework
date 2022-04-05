@@ -2,6 +2,7 @@ package com.zjq.service.impl;
 
 import com.zjq.dao.UserDao;
 import com.zjq.service.UserService;
+import org.springframework.beans.factory.BeanFactory;
 
 public class UserServiceImpl implements UserService {
 
