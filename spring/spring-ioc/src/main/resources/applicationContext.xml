@@ -65,4 +65,8 @@
     <!--<import resource="applicationContext-user.xml"/>
     <import resource="applicationContext-product.xml"/>-->
 
+    <bean id="userBean" class="com.zjq.factory.UserFactoryBean">
+        <property name="userInfo" value="詹先生,hangzhou"/>
+    </bean>
+
 </beans>
