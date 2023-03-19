@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjq.mapper.UserMapper">
+
+    <!-- 批量插入用户信息 -->
+    <insert id="batchInsertUser" parameterType="java.util.List">
+        insert into t_user(username,age) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.username},
+            #{item.age}
+            )
+        </foreach>
+    </insert>
+
+    <!-- 新增用户信息 -->
+    <insert id="insertUser" parameterType="user">
+        insert into t_user(username,age) values
+            (
+            #{username},
+            #{age}
+            )
+    </insert>
+
+</mapper>

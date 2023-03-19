@@ -16,6 +16,8 @@
         <module>mybatis-anno-multi</module>
         <module>mybatis-cache</module>
         <module>mybatis-plugin</module>
+        <!--mybatis进阶-->
+        <module>mybatis-advance</module>
     </modules>
 
     <name>mybatis</name>
