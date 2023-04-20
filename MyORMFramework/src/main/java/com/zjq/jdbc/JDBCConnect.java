@@ -1,6 +1,7 @@
 package com.zjq.jdbc;
 
 import com.zjq.entity.User;
+import org.junit.Test;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -13,7 +14,11 @@ import java.util.List;
  */
 public class JDBCConnect {
 
-    public static void main(String[] args) {
+    /**
+     * JDBC查询
+     */
+    @Test
+    public void select() {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -58,6 +63,53 @@ public class JDBCConnect {
                     e.printStackTrace();
                 }
             }
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /**
+     * JDBC新增
+     */
+    @Test
+    public void insert() {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            // 加载数据库驱动
+            Class.forName("com.mysql.jdbc.Driver");
+            // 通过驱动管理类获取数据库链接
+            connection =
+                    DriverManager.getConnection("jdbc:mysql://localhost:3306/my-orm-framework?characterEncoding=utf-8", "root", "root");
+            // 定义sql语句？表示占位符
+            String sql = "insert into user(username,password,phone) values (?,?,?)";
+            // 获取预处理statement
+            preparedStatement = connection.prepareStatement(sql);
+            // 设置参数，第⼀个参数为sql语句中参数的序号(从1开始)，第⼆个参数为设置的参数值
+            preparedStatement.setString(1, "共饮一杯无");
+            preparedStatement.setString(2, "888866669999");
+            preparedStatement.setString(3, "17688886666");
+            // 向数据库发出sql执⾏查询，查询出结果集
+            int result = preparedStatement.executeUpdate();
+            if(result>0){
+                System.out.println("新增成功");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            // 释放资源
             if (preparedStatement != null) {
                 try {
                     preparedStatement.close();
