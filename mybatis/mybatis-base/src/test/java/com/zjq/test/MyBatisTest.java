@@ -36,12 +36,12 @@ public class MyBatisTest {
 
     @Test
     //修改操作
-    public void test3() throws IOException {
+    public void updateById() throws IOException {
 
         //模拟user对象
         User user = new User();
         user.setId(2);
-        user.setUsername("jack");
+        user.setUsername("共饮一杯无666");
         user.setPassword("123456");
 
         //获得核心配置文件
@@ -62,11 +62,11 @@ public class MyBatisTest {
 
     @Test
     //插入操作
-    public void test2() throws IOException {
+    public void save() throws IOException {
 
         //模拟user对象
         User user = new User();
-        user.setUsername("zjq");
+        user.setUsername("共饮一杯无");
         user.setPassword("123456");
 
         //获得核心配置文件
@@ -87,7 +87,7 @@ public class MyBatisTest {
 
     @Test
     //查询操作
-    public void test1() throws IOException {
+    public void findAll() throws IOException {
         //获得核心配置文件
         InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
         //获得session工厂对象

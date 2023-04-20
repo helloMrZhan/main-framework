@@ -9,7 +9,7 @@
 
     <!--修改操作-->
     <update id="update" parameterType="com.zjq.domain.User">
-        update user set username=#{username},password=#{password} where id=#{id}
+        update user set username=#{username},password=#{password} where id = #{id}
     </update>
 
     <!--插入操作-->
