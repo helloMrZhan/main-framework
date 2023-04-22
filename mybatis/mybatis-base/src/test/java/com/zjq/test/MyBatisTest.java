@@ -104,7 +104,7 @@ public class MyBatisTest {
 
     @Test
     //查询一个对象
-    public void test5() throws IOException {
+    public void findById() throws IOException {
         //获得核心配置文件
         InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
         //获得session工厂对象
