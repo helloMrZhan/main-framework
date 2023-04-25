@@ -1,11 +1,14 @@
 package com.zjq.service;
 
+import com.zjq.dao.UserDao;
+import com.zjq.dao.UserDaoImpl;
 import com.zjq.dao.UserMapper;
 import com.zjq.domain.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,8 +35,14 @@ public class ServiceDemo {
         User user = mapper.findById(1);
         System.out.println(user);
 
+    }
 
 
+    @Test
+    public void testTraditionDao() throws IOException {
+        UserDao userDao = new UserDaoImpl();
+        List<User> all = userDao.findAll();
+        System.out.println(all);
     }
 
 }

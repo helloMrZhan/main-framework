@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * 用户mapper
+ * @author zjq
  */
 public interface UserMapper {
 

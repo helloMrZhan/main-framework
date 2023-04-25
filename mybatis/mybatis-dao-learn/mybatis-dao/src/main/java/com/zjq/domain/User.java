@@ -2,6 +2,10 @@ package com.zjq.domain;
 
 import lombok.Data;
 
+/**
+ * 用户实体
+ * @author zjq
+ */
 @Data
 public class User {
 
