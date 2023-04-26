@@ -14,10 +14,7 @@
                 and id=#{id}
             </if>
             <if test="username!=null and username!=''">
-                and username=#{username}
-            </if>
-            <if test="password!=null and password!=''">
-                and password=#{password}
+                and username like "%"#{username}"%"
             </if>
         </where>
     </select>
