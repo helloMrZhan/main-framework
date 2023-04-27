@@ -48,3 +48,12 @@ INSERT INTO `user` VALUES (13, 'ceshi', 'abc', '2021-08-02');
 INSERT INTO `user` VALUES (14, 'zhangsan', '666', '2021-08-02');
 
 SET FOREIGN_KEY_CHECKS = 1;
+
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL DEFAULT '',
+  `password` varchar(255) NOT NULL DEFAULT '',
+  `birthday` bigint(64) DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;

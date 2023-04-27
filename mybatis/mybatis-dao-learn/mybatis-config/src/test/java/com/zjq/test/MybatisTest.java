@@ -12,20 +12,20 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 public class MybatisTest {
 
     @Test
-    public void test3() throws IOException {
+    public void pageList() throws IOException {
         InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 
         //设置分页相关参数   当前页+每页显示的条数
-        PageHelper.startPage(3,3);
+        PageHelper.startPage(1,3);
 
         List<User> userList = mapper.findAll();
         for (User user : userList) {
@@ -47,21 +47,18 @@ public class MybatisTest {
     }
 
     @Test
-    public void test2() throws IOException {
+    public void findById() throws IOException {
         InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 
-        User user = mapper.findById(6);
-        System.out.println("user中的birthday："+user.getBirthday());
-
-        sqlSession.commit();
-        sqlSession.close();
+        User user = mapper.findById(5);
+        System.out.println("user："+user.toString());
     }
 
     @Test
-    public void test1() throws IOException {
+    public void save() throws IOException {
         InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -69,9 +66,9 @@ public class MybatisTest {
 
         //创建user
         User user = new User();
-        user.setUsername("ceshi");
+        user.setUsername("共饮一杯无");
         user.setPassword("abc");
-        user.setBirthday(new Date(new java.util.Date().getTime()));
+        user.setBirthday(new Date());
         //执行保存造作
         mapper.save(user);
 

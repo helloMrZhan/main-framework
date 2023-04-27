@@ -3,7 +3,7 @@
 <mapper namespace="com.zjq.mapper.UserMapper">
 
     <insert id="save" parameterType="user">
-        insert into user values(#{id},#{username},#{password},#{birthday})
+        insert into user(username,password,birthday) values(#{username},#{password},#{birthday})
     </insert>
 
     <select id="findById" parameterType="int" resultType="user">

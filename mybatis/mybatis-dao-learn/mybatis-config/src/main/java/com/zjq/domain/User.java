@@ -2,7 +2,7 @@ package com.zjq.domain;
 
 import lombok.Data;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * <p>用户</p>
@@ -24,6 +24,7 @@ public class User {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", birthday='" + birthday + '\'' +
                 '}';
     }
 }
