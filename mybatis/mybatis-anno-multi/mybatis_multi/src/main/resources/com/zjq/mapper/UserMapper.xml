@@ -6,8 +6,6 @@
     <resultMap id="userMap" type="user">
         <id column="uid" property="id"></id>
         <result column="username" property="username"></result>
-        <result column="password" property="password"></result>
-        <result column="birthday" property="birthday"></result>
         <!--配置集合信息
             property:集合名称
             ofType：当前集合中的数据类型
@@ -21,7 +19,7 @@
     </resultMap>
 
     <select id="findAll" resultMap="userMap">
-        SELECT *,o.id oid FROM USER u,orders o WHERE u.id=o.uid
+        select u.id uid,u.username ,o.id oid,o.ordertime,o.total from user u left join orders o on u.id=o.uid
     </select>
 
     <!--#############################################################################-->
@@ -41,7 +39,7 @@
     </resultMap>
 
     <select id="findUserAndRoleAll" resultMap="userRoleMap">
-        SELECT * FROM USER u,sys_user_role ur,sys_role r WHERE u.id=ur.userId AND ur.roleId=r.id
+        SELECT * FROM USER u,sys_user_role ur,sys_role r WHERE u.id=ur.uid AND ur.rid=r.id
     </select>
 
 

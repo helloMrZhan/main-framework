@@ -19,22 +19,22 @@ public class MybatisTest {
 
 
     @Test
-    public void test3() throws IOException {
+    public void oneToOne() throws IOException {
         InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        List<User> userAndRoleAll = mapper.findUserAndRoleAll();
-        for (User user : userAndRoleAll) {
-            System.out.println(user);
+        OrderMapper mapper = sqlSession.getMapper(OrderMapper.class);
+        List<Order> orderList = mapper.findAll();
+        for (Order order : orderList) {
+            System.out.println(order);
         }
 
         sqlSession.close();
     }
 
     @Test
-    public void test2() throws IOException {
+    public void oneToMany() throws IOException {
         InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -48,20 +48,25 @@ public class MybatisTest {
         sqlSession.close();
     }
 
+
     @Test
-    public void test1() throws IOException {
+    public void manyToMany() throws IOException {
         InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        OrderMapper mapper = sqlSession.getMapper(OrderMapper.class);
-        List<Order> orderList = mapper.findAll();
-        for (Order order : orderList) {
-            System.out.println(order);
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        List<User> userAndRoleAll = mapper.findUserAndRoleAll();
+        for (User user : userAndRoleAll) {
+            System.out.println(user);
         }
 
         sqlSession.close();
     }
+
+
+
+
 
 
 

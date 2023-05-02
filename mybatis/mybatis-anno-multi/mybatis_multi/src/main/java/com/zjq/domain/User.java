@@ -77,6 +77,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ", birthday=" + birthday +
                 ", roleList=" + roleList +
+                ", orderList=" + orderList +
                 '}';
     }
 }
