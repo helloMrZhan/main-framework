@@ -16,7 +16,7 @@
     </modules>
 
     <name>elasticsearch</name>
-    <description>elasticsearch学习记录</description>
+    <description>lucene、solr和elasticsearch学习记录</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -98,6 +98,42 @@
                 <artifactId>spring-test</artifactId>
                 <version>5.0.4.RELEASE</version>
             </dependency>
+
+            <!--lucene核心包-->
+            <dependency>
+                <groupId>org.apache.lucene</groupId>
+                <artifactId>lucene-core</artifactId>
+                <version>8.3.1</version>
+            </dependency>
+
+            <!--查询解析器包-->
+            <dependency>
+                <groupId>org.apache.lucene</groupId>
+                <artifactId>lucene-queryparser</artifactId>
+                <version>8.3.1</version>
+            </dependency>
+
+            <!--分析器通用包-->
+            <dependency>
+                <groupId>org.apache.lucene</groupId>
+                <artifactId>lucene-analyzers-common</artifactId>
+                <version>8.3.1</version>
+            </dependency>
+
+            <!--mysql驱动包-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>5.1.32</version>
+            </dependency>
+
+            <!--单元测试-->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+            </dependency>
+
 
         </dependencies>
     </dependencyManagement>
