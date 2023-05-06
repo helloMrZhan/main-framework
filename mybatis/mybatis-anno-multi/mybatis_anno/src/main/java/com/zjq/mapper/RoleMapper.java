@@ -18,7 +18,7 @@ public interface RoleMapper {
      * @param uid
      * @return
      */
-    @Select("SELECT * FROM sys_user_role ur,sys_role r WHERE ur.roleId=r.id AND ur.userId=#{uid}")
+    @Select("SELECT * FROM sys_user_role ur,sys_role r WHERE ur.rId=r.id AND ur.uid=#{uid}")
     List<Role> findByUid(int uid);
 
 }

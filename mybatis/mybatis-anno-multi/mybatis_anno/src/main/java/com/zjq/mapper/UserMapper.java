@@ -25,6 +25,10 @@ public interface UserMapper {
     @Select("select * from user where id=#{id}")
     User findById(int id);
 
+    /**
+     * 查询所有
+     * @return
+     */
     @Select("select * from user")
     List<User> findAll();
 
