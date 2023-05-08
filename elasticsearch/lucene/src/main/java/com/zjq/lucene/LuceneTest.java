@@ -3,11 +3,9 @@ package com.zjq.lucene;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
+import org.apache.lucene.document.StringField;
 import org.apache.lucene.document.TextField;
-import org.apache.lucene.index.DirectoryReader;
-import org.apache.lucene.index.IndexReader;
-import org.apache.lucene.index.IndexWriter;
-import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.index.*;
 import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
@@ -15,6 +13,7 @@ import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
+import org.apache.lucene.util.Version;
 import org.junit.Test;
 
 import java.nio.file.Path;
@@ -126,5 +125,73 @@ public class LuceneTest {
         }
         // 关闭资源
         reader.close();
+    }
+
+    /**
+     * 删除索引
+     * @throws Exception
+     */
+    @Test
+    public void deleteIndex() throws Exception {
+        // 1、指定索引库目录
+        Path path = Paths.get("D:\\usr\\lucene\\");
+        Directory directory = FSDirectory.open(path);
+        // 2、创建IndexWriterConfig
+        IndexWriterConfig cfg = new IndexWriterConfig(new StandardAnalyzer());
+        // 3、 创建IndexWriter
+        IndexWriter writer = new IndexWriter(directory, cfg);
+        // 4、通过IndexWriter来删除索引
+        // b)、删除指定索引
+        writer.deleteDocuments(new Term("filename", "apache"));
+        // 5、关闭IndexWriter
+        writer.close();
+    }
+
+    /**
+     * 删除全部索引
+     * @throws Exception
+     */
+    @Test
+    public void deleteAllIndex() throws Exception {
+        // 1、指定索引库目录
+        Path path = Paths.get("D:\\usr\\lucene\\");
+        Directory directory = FSDirectory.open(path);
+        // 2、创建IndexWriterConfig
+        IndexWriterConfig cfg = new IndexWriterConfig(new StandardAnalyzer());
+        // 3、 创建IndexWriter
+        IndexWriter writer = new IndexWriter(directory, cfg);
+        // 4、通过IndexWriter来删除索引
+        // a)、删除全部索引
+        writer.deleteAll();
+        // 5、关闭IndexWriter
+        writer.close();
+    }
+
+    /**
+     * 修改索引
+     * @throws Exception
+     */
+    @Test
+    public void updateIndex() throws Exception {
+        // 1、指定索引库目录
+        Path path = Paths.get("D:\\usr\\lucene\\");
+        Directory directory = FSDirectory.open(path);
+        // 2、创建IndexWriterConfig
+        IndexWriterConfig cfg = new IndexWriterConfig(new StandardAnalyzer());
+        // 3、 创建IndexWriter
+        IndexWriter writer = new IndexWriter(directory, cfg);
+        // 4、通过IndexWriter来修改索引
+        // a)、创建修改后的文档对象
+        Document document = new Document();
+
+        // 文件名称
+        Field filenameField = new StringField("filename", "updateIndex", Field.Store.YES);
+        document.add(filenameField);
+
+        // 修改指定索引为新的索引
+        writer.updateDocument(new Term("filename", "apache"), document);
+
+        // 5、关闭IndexWriter
+        writer.close();
     }
 }
