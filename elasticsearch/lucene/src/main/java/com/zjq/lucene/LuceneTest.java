@@ -1,21 +1,17 @@
 package com.zjq.lucene;
 
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
-import org.apache.lucene.document.Document;
-import org.apache.lucene.document.Field;
-import org.apache.lucene.document.StringField;
-import org.apache.lucene.document.TextField;
+import org.apache.lucene.document.*;
 import org.apache.lucene.index.*;
+import org.apache.lucene.queryparser.classic.MultiFieldQueryParser;
 import org.apache.lucene.queryparser.classic.QueryParser;
-import org.apache.lucene.search.IndexSearcher;
-import org.apache.lucene.search.Query;
-import org.apache.lucene.search.ScoreDoc;
-import org.apache.lucene.search.TopDocs;
+import org.apache.lucene.search.*;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -194,4 +190,104 @@ public class LuceneTest {
         // 5、关闭IndexWriter
         writer.close();
     }
+
+    /**
+     * 搜索
+     * @param query
+     */
+    private void doSearch(Query query) {
+        IndexReader reader = null;
+        try {
+            // a) 指定索引库目录
+            Path path = Paths.get("D:\\usr\\lucene\\");
+            Directory directory = FSDirectory.open(path);
+            // b) 创建IndexReader对象
+            reader = DirectoryReader.open(directory);
+            // c) 创建IndexSearcher对象
+            IndexSearcher searcher = new IndexSearcher(reader);
+            // d) 通过IndexSearcher对象执行查询索引库，返回TopDocs对象
+            // 第一个参数：查询对象
+            // 第二个参数：最大的n条记录
+            TopDocs topDocs = searcher.search(query, 10);
+            // e) 提取TopDocs对象中的文档ID，如何找出对应的文档
+            ScoreDoc[] scoreDocs = topDocs.scoreDocs;
+            System.out.println("总共查询出的结果总数为：" + topDocs.totalHits);
+            Document doc;
+            for (ScoreDoc scoreDoc : scoreDocs) {
+                // 文档对象ID
+                int docId = scoreDoc.doc;
+                doc = searcher.doc(docId);
+                // f) 输出文档内容
+                System.out.println("商品ID：" + doc.get("id"));
+                System.out.println("商品名称：" + doc.get("name"));
+                System.out.println("商品价格：" + doc.get("price"));
+                System.out.println("商品图片地址：" + doc.get("pic"));
+                System.out.println("==========================");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /**
+     * TermQuery搜索
+     * @throws Exception
+     */
+    @Test
+    public void testTermQuery() throws Exception {
+        // 1、 创建查询（Query对象）
+        Query query = new TermQuery(new Term("description", "mybatis"));
+        // 2、 执行搜索
+        doSearch(query);
+    }
+
+    @Test
+    public void testRangeQuery() throws Exception {
+        // 创建查询
+        // 第一个参数：域名
+        // 第二个参数：最小值
+        // 第三个参数：最大值
+        Query query = FloatPoint.newRangeQuery("price", 0, 500);
+        // 2、 执行搜索
+        doSearch(query);
+    }
+
+    @Test
+    public void booleanQuery() throws Exception {
+    }
+
+    @Test
+    public void testQueryParser() throws Exception {
+        // 创建QueryParser
+        // 第一个参数：默认域名
+        // 第二个参数：分词器
+        QueryParser queryParser = new QueryParser("name", new StandardAnalyzer());
+        // 指定查询语法 ，如果不指定域，就搜索默认的域
+        Query query = queryParser.parse("lucene");
+        System.out.println(query);
+        // 2、 执行搜索
+        doSearch(query);
+
+    }
+
+    @Test
+    public void testMultiFieldQueryParser() throws Exception {
+        // 可以指定默认搜索的域是多个
+        String[] fields = { "name", "description" };
+        // 创建一个MulitFiledQueryParser对象
+        QueryParser parser = new MultiFieldQueryParser(fields, new StandardAnalyzer());
+        // 指定查询语法 ，如果不指定域，就搜索默认的域
+        Query query = parser.parse("lucene");
+        // 2、 执行搜索
+        doSearch(query);
+    }
+
 }
