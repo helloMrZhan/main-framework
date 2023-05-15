@@ -1,5 +1,6 @@
 package com.zjq.lucene;
 
+import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.*;
 import org.apache.lucene.index.*;
@@ -288,6 +289,29 @@ public class LuceneTest {
         Query query = parser.parse("lucene");
         // 2、 执行搜索
         doSearch(query);
+    }
+
+    @Test
+    public void setBoost4createIndex() throws Exception {
+        // 创建分词器
+        Analyzer analyzer = new StandardAnalyzer();
+
+        IndexWriterConfig cfg = new IndexWriterConfig(analyzer);
+        Path path = Paths.get("D:\\usr\\lucene\\");
+        Directory directory = FSDirectory.open(path);
+        // 创建IndexWriter对象，通过它把分好的词写到索引库中
+        IndexWriter writer = new IndexWriter(directory, cfg);
+
+        Document doc = new Document();
+        Field id = new StringField("id", "11", Field.Store.YES);
+        Field description = new TextField("description", "测试设置BOOST值 lucene",
+                Field.Store.YES);
+        // 把域添加到文档中
+        doc.add(id);
+        doc.add(description);
+        writer.addDocument(doc);
+        // 关闭IndexWriter
+        writer.close();
     }
 
 }
