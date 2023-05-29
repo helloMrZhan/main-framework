@@ -2,7 +2,9 @@ package com.zjq.service.impl;
 
 import com.zjq.dao.UserDao;
 import com.zjq.service.UserService;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
