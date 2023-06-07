@@ -69,4 +69,9 @@
         <property name="userInfo" value="詹先生,hangzhou"/>
     </bean>
 
+    <bean id="myBean" class="com.zjq.bean.MyBean"/>
+    <bean id="myBeanFactoryPostProcessor"
+          class="com.zjq.bean.MyBeanFactoryPostProcessor"/>
+    <bean id="myBeanPostProcessor" class="com.zjq.bean.MyBeanPostProcessor"/>
+
 </beans>

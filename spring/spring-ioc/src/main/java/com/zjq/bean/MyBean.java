@@ -20,6 +20,6 @@ public class MyBean implements InitializingBean {
      */
     @Override
     public void afterPropertiesSet() throws Exception {
-
+        System.out.println("MyBean afterPropertiesSet...");
     }
 }
